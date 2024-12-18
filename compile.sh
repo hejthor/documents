@@ -8,6 +8,8 @@ for md_file in ./input/*.md; do
   pandoc "$md_file" \
     --reference-doc="./resources/template.odt" \
     --lua-filter="./resources/filters/include-files.lua" \
+    --lua-filter="./resources/filters/diagram-generator.lua" \
+    --metadata=plantumlPath:"./resources/PlantUML 1.2024.8.jar" \
     -o "./output/$(basename "$md_file" .md).odt"
 done
 
