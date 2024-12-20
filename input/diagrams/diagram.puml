@@ -1,6 +1,14 @@
-```{.plantuml}
+```{.plantuml width=100%}
 @startuml
-Alice -> Bob: Authentication Request Bob --> Alice: Authentication Response
-Alice -> Bob: Another authentication Request Alice <-- Bob: another Response
+title AI Job Market Impact
+actor Worker
+actor AI_System
+actor Employer
+
+Worker -> AI_System : Uses AI tools
+AI_System -> Worker : Assists with tasks
+Employer -> Worker : Demands new skillset
+Employer -> AI_System : Implements AI systems
+
 @enduml
 ```

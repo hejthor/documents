@@ -380,6 +380,11 @@ function CodeBlock(block)
             imgObj.identifier = block.identifier
         end
 
+        -- Check for the "width" attribute and set the image width if it exists
+        if block.attributes["width"] then
+            imgObj.attributes["width"] = block.attributes["width"]
+        end
+
         -- Finally, put the image inside an empty paragraph. By returning the
         -- resulting paragraph object, the source code block gets replaced by
         -- the image:
