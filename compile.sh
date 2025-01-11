@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Create output directory if it doesn't exist
-mkdir -p "output"
+mkdir -p "./output"
 
 # Loop through all .odt files in resources/templates/
 for template in resources/templates/*.odt; do
