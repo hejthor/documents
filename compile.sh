@@ -9,17 +9,17 @@ for template in resources/templates/*.odt; do
   template_name=$(basename "$template" .odt)
 
   # Loop through .md files in the input directory
-  for md_file in input/*.md; do
+  for md_file in ./input/*.md; do
     # Convert the markdown file to .odt using the current template
     pandoc "$md_file" \
       --reference-doc "$template" \
-      --metadata=plantumlPath:"resources/PlantUML 1.2024.8.jar" \
-      --lua-filter resources/filters/include-files.lua \
-      --lua-filter resources/filters/diagram-generator.lua \
-      --lua-filter resources/filters/pagebreak.lua \
+      --metadata=plantumlPath:"./resources/PlantUML 1.2024.8.jar" \
+      --lua-filter="./resources/filters/include-files.lua" \
+      --lua-filter="./resources/filters/diagram-generator.lua" \
+      --lua-filter="./resources/filters/pagebreak.lua" \
       --citeproc \
-      --bibliography input/bibliographies/*.bib \
-      --csl resources/styles/apa-eu.csl \
+      --bibliography ./input/bibliographies/*.bib \
+      --csl "./resources/styles/apa-eu.csl" \
       -o "output/$(basename "$md_file" .md) ($template_name).odt"
   done
 done
